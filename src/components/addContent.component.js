@@ -64,8 +64,7 @@
             date: this.state.date
           }
          console.log(content);
-      axios.post("http://localhost:5000/content/add", content).then(res => console.log(res.data));
-         //window.location='/home';
+      axios.post("http://localhost:5000/content/add", content).then(res => window.location='/home');
       }
       
       render(){
