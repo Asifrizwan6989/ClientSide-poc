@@ -70,7 +70,7 @@
       render(){
         return (
         <div className="container">
-            <h1>Add new content</h1>
+            <h1>Add new Film</h1>
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                     <label>Film</label>
@@ -87,7 +87,7 @@
                 <div className="form-group">
                     <label>Date of Release</label>
                     <div>
-                        <DatePicker selected={this.state.date} onChange={this.onChangeDate}/>
+                        <DatePicker className="form-control" selected={this.state.date} onChange={this.onChangeDate}/>
                     </div>
                     {/* <input type="date" value={this.state.date} className="form-control" onChange={this.onChangeDate}></input> */}
                 </div>

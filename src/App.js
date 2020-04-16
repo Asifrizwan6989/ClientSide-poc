@@ -7,6 +7,7 @@ import LoginPage from "./components/login.component";
 import HomePage from "./components/home.component";
 import AddPage from "./components/addContent.component";
 import EditPage from "./components/editContent.component";
+import ShowPage from "./components/showContent.component";
 
 const nav=   {navigationOptions : {
     header: null,
@@ -20,6 +21,7 @@ function App() {
       <br/>
       <Route path="/home" exact component={HomePage}/>
       <Route path="/add" exact component={AddPage}/>
+      <Route path="/show/:id" exact component={ShowPage}/>
       <Route path="/edit/:id" exact component={EditPage}/>
     </Router>
   

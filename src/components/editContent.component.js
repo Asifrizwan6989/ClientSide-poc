@@ -82,13 +82,13 @@ export default class Edit extends Component{
                 .then((result) => {
                     console.log("edit line no 88"+this.props.history);
                   this.props.history.push("/home")
-                })) : 'Disagreed'
+                })) : 'Edit process cancelled'
             });
         }
     });
 
 
-    axios.post("http://localhost:5000/content/update/"+this.props.match.params.id, content).then(res => console.log(res.data));
+    // axios.post("http://localhost:5000/content/update/"+this.props.match.params.id, content).then(res => console.log(res.data));
        //window.location='/home';
     }
     
@@ -96,7 +96,7 @@ export default class Edit extends Component{
       return (
       <div className="container">
           <br/>
-          {/* <h1>Edit content</h1> */}
+          <h1>Edit Film</h1>
           <form onSubmit={this.onSubmit}>
               <div className="form-group">
                   <label>Film</label>
@@ -113,7 +113,7 @@ export default class Edit extends Component{
               <div className="form-group">
                   <label>Date of Release</label>
                   <div>
-                      <DatePicker selected={this.state.date} onChange={this.onChangeDate}/>
+                      <DatePicker className="form-control" selected={this.state.date} onChange={this.onChangeDate}/>
                   </div>
                   {/* <input type="date" value={this.state.date} className="form-control" onChange={this.onChangeDate}></input> */}
               </div>
