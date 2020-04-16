@@ -127,7 +127,7 @@
                     <input type="text" value={this.state.description} className="form-control" onChange={this.onChangeDescription} required></input>
                 </div>
                 <div className="form-group">
-                    <label>Film Duration(in minutes)</label>
+                    <label>Film Duration(in minutes)*</label>
                     <input type="number" value={this.state.duration} className="form-control" onChange={this.onChangeDuration} required></input>
                 </div>
                 <div className="form-group">
@@ -143,7 +143,7 @@
 
                 <div className="form-group">
                     <label>Cast crew</label>
-                    <input type="text" value={this.state.cast} className="form-control" onChange={this.onChangeCast} required></input>
+                    <input type="text" value={this.state.cast} className="form-control" onChange={this.onChangeCast} ></input>
                 </div>
                 <div className="form-group">
                     <label>Produced By</label>
@@ -151,7 +151,7 @@
                 </div>
                 <div className="form-group">
                     <label>Film director</label>
-                    <input type="text" value={this.state.director} className="form-control" onChange={this.onChangeDirector} required></input>
+                    <input type="text" value={this.state.director} className="form-control" onChange={this.onChangeDirector}></input>
                 </div>
                 <div className="form-group">
                     <label>Music</label>
