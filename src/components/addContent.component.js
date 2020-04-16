@@ -12,6 +12,7 @@
   import React, {Component} from 'react';
   import 'bootstrap/dist/css/bootstrap.min.css';
   import DatePicker from "react-datepicker";
+  import {Link} from 'react-router-dom';
   import "react-datepicker/dist/react-datepicker.css";
   import axios from 'axios';
 
@@ -23,13 +24,24 @@
           this.onChangeDescription = this.onChangeDescription.bind(this);
           this.onChangeDuration = this.onChangeDuration.bind(this);
           this.onChangeDate =this.onChangeDate.bind(this);
+          this.onChangeCast =this.onChangeCast.bind(this);
+          this.onChangeProducedBy= this.onChangeProducedBy.bind(this);
+          this.onChangeDirector= this.onChangeDirector.bind(this);
+          this.onChangeMusic= this.onChangeMusic.bind(this);
+          this.onChangeLanguage =this.onChangeLanguage.bind(this);
 
           this.onSubmit= this.onSubmit.bind(this);
     this.state={
               title:'',
               description:'',
               duration:0,
-              date: new Date()
+              date: new Date(),
+              cast:'',
+              producedBy:'',
+              director:'',
+              music:'',
+              language:''
+
           }
       }
     //   componentDidMount(){
@@ -55,13 +67,47 @@
             date: date
         });
     }
+
+    onChangeCast(e) {
+        this.setState({
+            cast: e.target.value
+        });
+    }
+    onChangeProducedBy(e){
+        this.setState({producedBy: e.target.value})
+    }
+    onChangeDirector(e){
+        this.setState({
+            director: e.target.value
+        });
+    }
+    onChangeMusic(e) {
+        this.setState({
+            music: e.target.value
+        });
+    }
+    onChangeLanguage(e){
+        this.setState({
+            language: e.target.value
+        });
+    }
+
+
+
+
+
      onSubmit(e){
           e.preventDefault();
           const content= {
             title: this.state.title,
             description: this.state.description,
             duration:this.state.duration,
-            date: this.state.date
+            date: this.state.date,
+            cast:this.state.cast,
+            producedBy:this.state.producedBy,
+            director:this.state.director,
+            music:this.state.music,
+            language:this.state.language
           }
          console.log(content);
       axios.post("http://localhost:5000/content/add", content).then(res => window.location='/home');
@@ -77,7 +123,7 @@
                     <input type="text" value={this.state.title} className="form-control" onChange={this.onChangeTitle} required></input>
                 </div>
                 <div className="form-group">
-                    <label>Cast & Description</label>
+                    <label>Description</label>
                     <input type="text" value={this.state.description} className="form-control" onChange={this.onChangeDescription}></input>
                 </div>
                 <div className="form-group">
@@ -91,8 +137,36 @@
                     </div>
                     {/* <input type="date" value={this.state.date} className="form-control" onChange={this.onChangeDate}></input> */}
                 </div>
-                <div>
-                    <button type="submit">Add</button>
+                
+
+
+
+                <div className="form-group">
+                    <label>Cast crew</label>
+                    <input type="text" value={this.state.cast} className="form-control" onChange={this.onChangeCast} required></input>
+                </div>
+                <div className="form-group">
+                    <label>Produced By</label>
+                    <input type="text" value={this.state.producedBy} className="form-control" onChange={this.onChangeProducedBy}></input>
+                </div>
+                <div className="form-group">
+                    <label>Film director</label>
+                    <input type="text" value={this.state.director} className="form-control" onChange={this.onChangeDirector} required></input>
+                </div>
+                <div className="form-group">
+                    <label>Music</label>
+                    <input type="text" value={this.state.music} className="form-control" onChange={this.onChangeMusic}></input>
+                </div>
+                <div className="form-group">
+                    <label>Language</label>
+                    <input type="text" value={this.state.language} className="form-control" onChange={this.onChangeLanguage}></input>
+                </div>
+
+                <div className="float-right">
+                    <span style={{paddingRight: "19px"}} ><button className="btn btn-primary" type="submit">Add</button></span>
+                    <span>
+                    <button className="btn btn-danger"><Link className="text-white" to='/home'>Cancel</Link> </button>
+                    </span>
                 </div>
             </form>
         </div>

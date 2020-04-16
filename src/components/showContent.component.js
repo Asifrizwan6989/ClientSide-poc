@@ -35,12 +35,25 @@ class Show extends Component {
             <dl>
               <dt>Film:</dt>
               <dd>{this.state.content.title}</dd>
-              <dt>Author:</dt>
+              <dt>description:</dt>
               <dd>{this.state.content.description}</dd>
-              <dt>Description:</dt>
+              <dt>Film duration(in minutes):</dt>
               <dd>{this.state.content.duration}</dd>
               <dt>Publish Date:</dt>
               <dd>{this.state.content.date}</dd>
+
+
+
+              <dt>Casting:</dt>
+              <dd>{this.state.content.cast}</dd>
+              <dt>Film producedBy:</dt>
+              <dd>{this.state.content.producedBy}</dd>
+              <dt>Film director:</dt>
+              <dd>{this.state.content.director}</dd>
+              <dt>Music:</dt>
+              <dd>{this.state.content.music}</dd>
+              <dt>Language:</dt>
+              <dd>{this.state.content.language}</dd>
               
             </dl>
            
