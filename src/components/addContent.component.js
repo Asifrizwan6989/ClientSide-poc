@@ -119,21 +119,21 @@
             <h1>Add new Film</h1>
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
-                    <label>Film</label>
+                    <label>Film *</label>
                     <input type="text" value={this.state.title} className="form-control" onChange={this.onChangeTitle} required></input>
                 </div>
                 <div className="form-group">
-                    <label>Description</label>
-                    <input type="text" value={this.state.description} className="form-control" onChange={this.onChangeDescription}></input>
+                    <label>Description *</label>
+                    <input type="text" value={this.state.description} className="form-control" onChange={this.onChangeDescription} required></input>
                 </div>
                 <div className="form-group">
                     <label>Film Duration(in minutes)</label>
-                    <input type="number" value={this.state.duration} className="form-control" onChange={this.onChangeDuration}></input>
+                    <input type="number" value={this.state.duration} className="form-control" onChange={this.onChangeDuration} required></input>
                 </div>
                 <div className="form-group">
-                    <label>Date of Release</label>
+                    <label>Date of Release *</label>
                     <div>
-                        <DatePicker className="form-control" selected={this.state.date} onChange={this.onChangeDate}/>
+                        <DatePicker className="form-control" selected={this.state.date} onChange={this.onChangeDate} required/>
                     </div>
                     {/* <input type="date" value={this.state.date} className="form-control" onChange={this.onChangeDate}></input> */}
                 </div>
