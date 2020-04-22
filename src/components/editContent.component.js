@@ -173,7 +173,7 @@ onChangeLanguage(e){
                 </div>
                 <div className="form-group">
                     <label>Produced By</label>
-                    <input type="text" value={this.state.producedBy} className="form-control" onChange={this.onChangeProducedBy}></input>
+                    <input type="text" value={this.state.producedBy} className="form-control" onChange={this.onChangeProducedBy} required></input>
                 </div>
                 <div className="form-group">
                     <label>Film director</label>
