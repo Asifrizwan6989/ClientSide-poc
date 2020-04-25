@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { MDBDataTable, MDBLink } from 'mdbreact';
+import { MDBDataTable} from 'mdbreact';
 //import {Link} from 'react-router-dom';
 import axios from 'axios';
 import mobiscroll from '@mobiscroll/react-lite';
@@ -105,7 +105,22 @@ class DatatablePage extends Component{
          temp.month=monthNames[temp.monthconvert];
          temp.year=currentvale.date.substring(0,4);
       
-         temp.action= [<MDBLink to={`/edit/${currentvale._id}`}  link> Edit</MDBLink>, <MDBLink to={'#'}  onClick={()=> {this.deleteContent(currentvale._id) }} link>Delete</MDBLink>, <MDBLink to={`/show/${currentvale._id}`}  link>View</MDBLink>]
+         temp.action= [<ul className="nav justify-content-center">
+         
+         <li className="nav-item">
+           <a className="nav-link" href={`/edit/${currentvale._id}`}>Edit </a>
+         </li>
+         <li className="nav-item">
+           <a className="nav-link" href="#" onClick={()=> {this.deleteContent(currentvale._id) }} >Delete </a>
+         </li>
+         <li className="nav-item">
+           <a className="nav-link" href={`/show/${currentvale._id}`} >View</a>
+         </li>
+       </ul>]
+         
+        //  [<MDBLink className="col-md-3" to={`/edit/${currentvale._id}`}  link> Edit</MDBLink>,
+        //   <MDBLink className="col-md-3" to={'#'}  onClick={()=> {this.deleteContent(currentvale._id) }} link>Delete</MDBLink>, 
+        //   <MDBLink className="col-md-3" to={`/show/${currentvale._id}`}  link>View</MDBLink>]
          
          //<Link to={'/edit/'+currentvale._id}>edit</Link> | <a href="#" > Delete</a> | <Link to={`/show/${currentvale._id}`}>View</Link>;
         finalValue.push(temp);
