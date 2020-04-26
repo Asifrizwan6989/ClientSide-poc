@@ -48,6 +48,7 @@ const columnsForTable = [
   {
     label: 'Actions',
     field: 'action',
+    sort:'disabled',
     width: 100
   }
 ];
@@ -79,6 +80,9 @@ class DatatablePage extends Component{
 
   
   componentDidMount(){
+    // let fontName = 'AbrilFatface-Regular'
+    // GlobalFont.applyGlobal(fontName) 
+
     axios.get("http://localhost:5000/content/")
     .then(response =>{
       console.log(response);
@@ -107,16 +111,16 @@ class DatatablePage extends Component{
          temp.year=currentvale.date.substring(0,4);
       
          temp.action= [<ul className="nav justify-content-center">
+         <li className="nav-item">
+           <a className="nav-link" href={`/show/${currentvale._id}`} ><i class="far fa-file-alt text-success">View</i></a>
+         </li>
+         <li className="nav-item">
+           <a className="nav-link" href={`/edit/${currentvale._id}`}> <i className="fas fa-pencil-alt text-primary"> Edit</i> </a>
+         </li>
+         <li className="nav-item">
+           <a className="nav-link" href="#" onClick={()=> {this.deleteContent(currentvale._id) }} ><i class="far fa-trash-alt text-danger">Delete</i> </a>
+         </li>
          
-         <li className="nav-item">
-           <a className="nav-link" href={`/edit/${currentvale._id}`}> <i className="fas fa-pencil-alt "> Edit</i> </a>
-         </li>
-         <li className="nav-item">
-           <a className="nav-link" href="#" onClick={()=> {this.deleteContent(currentvale._id) }} ><i class="far fa-trash-alt">Delete</i> </a>
-         </li>
-         <li className="nav-item">
-           <a className="nav-link" href={`/show/${currentvale._id}`} ><i class="far fa-file-alt ">View</i></a>
-         </li>
        </ul>]
          
         //  [<MDBLink className="col-md-3" to={`/edit/${currentvale._id}`}  link> Edit</MDBLink>,
@@ -173,7 +177,7 @@ mobiscroll.confirm({
 
   return (
     
-   <div className="container">
+   <div className="container" style={{fontFamily : "serif"}}>
     <MDBDataTable
       striped
       bordered
