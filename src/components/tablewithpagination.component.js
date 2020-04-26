@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { MDBDataTable} from 'mdbreact';
-//import {Link} from 'react-router-dom';
+import 'mdbreact/dist/css/mdb.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
 import axios from 'axios';
 import mobiscroll from '@mobiscroll/react-lite';
 import '@mobiscroll/react-lite/dist/css/mobiscroll.min.css';
@@ -25,7 +27,7 @@ const columnsForTable = [
     width: 200
   },
   {
-    label: 'production',
+    label: 'Production',
     field: 'producedBy',
     sort: 'asc',
     width: 100
@@ -37,16 +39,15 @@ const columnsForTable = [
     width: 150
   },
   {
-    label: 'year of release',
+    label: 'Year of release',
     field: 'year',
     sort: 'asc',
     width: 100
   },
 
   {
-    label: 'Action',
+    label: 'Actions',
     field: 'action',
-    sort: 'asc',
     width: 100
   }
 ];
@@ -108,13 +109,13 @@ class DatatablePage extends Component{
          temp.action= [<ul className="nav justify-content-center">
          
          <li className="nav-item">
-           <a className="nav-link" href={`/edit/${currentvale._id}`}>Edit </a>
+           <a className="nav-link" href={`/edit/${currentvale._id}`}> <i className="fas fa-pencil-alt "> Edit</i> </a>
          </li>
          <li className="nav-item">
-           <a className="nav-link" href="#" onClick={()=> {this.deleteContent(currentvale._id) }} >Delete </a>
+           <a className="nav-link" href="#" onClick={()=> {this.deleteContent(currentvale._id) }} ><i class="far fa-trash-alt">Delete</i> </a>
          </li>
          <li className="nav-item">
-           <a className="nav-link" href={`/show/${currentvale._id}`} >View</a>
+           <a className="nav-link" href={`/show/${currentvale._id}`} ><i class="far fa-file-alt ">View</i></a>
          </li>
        </ul>]
          

@@ -172,7 +172,7 @@ onChangeLanguage(e){
                     <input type="text" value={this.state.cast} className="form-control" onChange={this.onChangeCast} ></input>
                 </div>
                 <div className="form-group">
-                    <label>Produced By</label>
+                    <label>Produced By *</label>
                     <input type="text" value={this.state.producedBy} className="form-control" onChange={this.onChangeProducedBy} required></input>
                 </div>
                 <div className="form-group">
